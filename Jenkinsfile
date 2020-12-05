@@ -19,6 +19,10 @@ pipeline {
             """
             }
          }
+       stage('Start app') {
+        steps {
+            powershell label:'', script: "docker-compose up"
+        }
          /*
         stage('Abrir Aplicacion'){
             steps{
