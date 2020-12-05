@@ -39,7 +39,7 @@ pipeline {
           steps {
             powershell label:'', script: """
                 docker-compose down
-             """)
+             """
           }
        }
       // stage('Container Scanning') {
