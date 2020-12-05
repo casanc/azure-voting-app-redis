@@ -23,5 +23,11 @@ pipeline {
             powershell label:'', script: 'docker-compose up -d'
         }
        }
+      stage('Abrir Aplicacion'){
+            steps{
+                powershell label:'', script: 'Write-Host "http://localhost:8000/"'
+            }
+
+         }
    }
 }
