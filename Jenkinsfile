@@ -21,15 +21,15 @@ pipeline {
          }
        stage('Start app') {
         steps {
-            powershell label:'', script: "docker-compose up"
+            powershell label:'', script: 'docker-compose up'
         }
-         /*
         stage('Abrir Aplicacion'){
             steps{
                 powershell label:'', script: 'Start-Process "http://localhost:8000/"'
             }
 
          }
+         /*
         stage('Run Trivy') {
                steps {
                   sleep(time: 30, unit: 'SECONDS')
