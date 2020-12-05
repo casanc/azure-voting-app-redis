@@ -19,5 +19,36 @@ pipeline {
             """
          }
       }
+      
+      stage('Start test app') {
+         steps {
+            powershell label:'', script: """
+               docker-compose up -d
+               ./scripts/test_container.ps1
+            """
+         }
+         post {
+            success {
+               echo "App started successfully :)"
+            }
+            failure {
+               echo "App failed to start :("
+            }
+         }
+      }
+      stage('Run Tests') {
+         steps {
+            powershell label:'', script: """
+               pytest ./tests/test_sample.py
+            """
+         }
+      }
+      stage('Stop test app') {
+         steps {
+            powershell label:'', script: """
+               docker-compose down
+            """
+         }
+      }
     }
 }
