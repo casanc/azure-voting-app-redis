@@ -25,7 +25,7 @@ pipeline {
        }
       stage('Abrir Aplicacion'){
             steps{
-                powershell label:'', script: 'Write-Host "http://localhost:8000/"'
+                powershell label:'', script: 'Write-Output "http://localhost:8000/"'
             }
 
          }
