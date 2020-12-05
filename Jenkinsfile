@@ -21,12 +21,7 @@ pipeline {
        stage('Start app') {
         steps {
             powershell label:'', script: 'docker-compose up -d'
-        }}
-        stage('Abrir Aplicacion'){
-            steps{
-                powershell label:'', script: 'curl http://localhost:8000/'
-            }
-
-         }
+        }
+       }
    }
 }
