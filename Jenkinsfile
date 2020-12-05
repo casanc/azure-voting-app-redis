@@ -5,8 +5,8 @@ pipeline {
         stage('Verify Branch') {
          steps {
             echo "$GIT_BRANCH"
+            }
          }
-      }
         stage('Docker Build') {
          steps {
             powershell label:'', script: 'docker images -a'
@@ -17,19 +17,19 @@ pipeline {
                docker images -a
                cd ..
             """
+            }
          }
-      }
+         
         stage('Run Trivy') {
                steps {
-                  sleep(time: 60, unit: 'SECONDS')
+                  sleep(time: 30, unit: 'SECONDS')
                }
             }
-        //stage('Stop test app') {
-        //steps {
-        //  powershell label:'', script: """
-        //     docker-compose down
-        //  """
-        //    }    
-        //}   
+        stage('Abrir aplicación') {
+          steps {
+            powershell label:'', script: """
+              Start-Process "http://localhost:8000/"
+            }    
+        }   
    }
 }
