@@ -35,13 +35,13 @@ pipeline {
             }
          }
       }
-      stage('Run Tests') {
-         steps {
-            powershell label:'', script: """
-               pytest ./tests/test_sample.py
-            """
-         }
-      }
+      // stage('Run Tests') {
+      //   steps {
+      //      powershell label:'', script: """
+      //         pytest ./tests/test_sample.py
+      //     """
+      //   }
+      // }
       
       // stage('Stop test app') {
       //    steps {
