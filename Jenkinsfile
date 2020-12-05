@@ -19,16 +19,6 @@ pipeline {
             """
          }
       }
-      stage('Start test app') {
-         steps {
-            powershell label:'', script: """
-               docker-compose up -d
-               ./scripts/test_container.ps1
-            """
-         }
-        
-      }
-      
     stage('Stop test app') {
        steps {
           powershell label:'', script: """
