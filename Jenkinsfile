@@ -35,13 +35,13 @@ pipeline {
          }
        }
       
-      // stage('Stop test app') {
-      //    steps {
-      //       powershell label:'', script: """
-      //          docker-compose down
-      //       """)
-      //    }
-      // }
+      stage('Stop test app') {
+          steps {
+            powershell label:'', script: """
+                docker-compose down
+             """)
+          }
+       }
       // stage('Container Scanning') {
       //    parallel {
       //       stage('Run Anchore') {
