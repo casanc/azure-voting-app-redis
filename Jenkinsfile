@@ -9,7 +9,7 @@ pipeline {
       }
       stage('Docker Build') {
          steps {
-            powershell label:'', script: 'docker rmi -f azure-vote-front'
+            //powershell label:'', script: 'docker rmi -f azure-vote-front'
             powershell label:'', script: 'docker images -a'
             powershell label:'', script: """
                cd azure-vote/
