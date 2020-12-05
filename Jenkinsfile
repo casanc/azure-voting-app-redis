@@ -9,7 +9,6 @@ pipeline {
          }
         stage('Docker Build') {
          steps {
-            //powershell label:'', script: 'docker images -a'
             powershell label:'', script: """
                cd azure-vote/
                docker images -a
@@ -25,15 +24,9 @@ pipeline {
         }}
         stage('Abrir Aplicacion'){
             steps{
-                powershell label:'', script: 'Start-Process http://localhost:8000/'
+                powershell label:'', script: 'curl http://localhost:8000/'
             }
 
          }
-         /*
-        stage('Run Trivy') {
-               steps {
-                  sleep(time: 30, unit: 'SECONDS')
-               }
-         }*/
    }
 }
