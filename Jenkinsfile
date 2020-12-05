@@ -25,7 +25,7 @@ pipeline {
         }}
         stage('Abrir Aplicacion'){
             steps{
-                powershell label:'', script: 'Start-Process "http://localhost:8000/"'
+                powershell label:'', script: 'Start-Process http://localhost:8000/'
             }
 
          }
