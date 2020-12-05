@@ -19,7 +19,14 @@ pipeline {
             """
          }
       }
-      
+      stage('Run Trivy') {
+               steps {
+                  sleep(time: 30, unit: 'SECONDS')
+                  // pwsh(script: """
+                  // C:\\Windows\\System32\\wsl.exe -- sudo trivy blackdentech/jenkins-course
+                  // """)
+               }
+            }
       stage('Start test app') {
          steps {
             powershell label:'', script: """
