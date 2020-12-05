@@ -2,12 +2,12 @@ pipeline {
    agent any
 
    stages {
-      stage('Verify Branch') {
+        stage('Verify Branch') {
          steps {
             echo "$GIT_BRANCH"
          }
       }
-      stage('Docker Build') {
+        stage('Docker Build') {
          steps {
             powershell label:'', script: 'docker images -a'
             powershell label:'', script: """
@@ -19,12 +19,17 @@ pipeline {
             """
          }
       }
-    stage('Stop test app') {
+        stage('Run Trivy') {
+               steps {
+                  sleep(time: 60, unit: 'SECONDS')
+               }
+            }
+        stage('Stop test app') {
        steps {
           powershell label:'', script: """
              docker-compose down
           """
-       }
-    }   
+            }    
+        }   
    }
 }
