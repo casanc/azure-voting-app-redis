@@ -24,12 +24,12 @@ pipeline {
                   sleep(time: 60, unit: 'SECONDS')
                }
             }
-        stage('Stop test app') {
-       steps {
-          powershell label:'', script: """
-             docker-compose down
-          """
-            }    
-        }   
+        //stage('Stop test app') {
+        //steps {
+        //  powershell label:'', script: """
+        //     docker-compose down
+        //  """
+        //    }    
+        //}   
    }
 }
