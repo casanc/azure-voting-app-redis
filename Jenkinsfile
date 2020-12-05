@@ -9,7 +9,7 @@ pipeline {
       }
       stage('Docker Build') {
          steps {
-            powersell label:'', script: 'write-output "Hello wordl"'
+            powershell label:'', script: 'write-output "Hello wordl"'
          }
       }
     }
