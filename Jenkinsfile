@@ -24,7 +24,7 @@ pipeline {
             powershell label:'', script: """
                docker-compose up -d
                ./scripts/test_container.ps1
-            """)
+            """
          }
          post {
             success {
@@ -37,9 +37,9 @@ pipeline {
       }
       stage('Run Tests') {
          steps {
-            pwsh(script: """
+            powershell label:'', script: """
                pytest ./tests/test_sample.py
-            """)
+            """
          }
       }
       
