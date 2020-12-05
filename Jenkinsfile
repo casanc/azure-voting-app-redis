@@ -22,7 +22,7 @@ pipeline {
        stage('Start app') {
         steps {
             powershell label:'', script: 'docker-compose up'
-        }
+        }}
         stage('Abrir Aplicacion'){
             steps{
                 powershell label:'', script: 'Start-Process "http://localhost:8000/"'
