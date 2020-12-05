@@ -19,21 +19,21 @@ pipeline {
             """
          }
       }
-      stage('Start app') {
+     // stage('Start app') {
+     //   steps {
+     //       powershell label:'', script: """
+     //          docker-compose up -d
+     //          ./scripts/test_container.ps1
+     //       """
+     //    }
+     // }
+       stage('Run Tests') {
          steps {
-            powershell label:'', script: """
-               docker-compose up -d
-               ./scripts/test_container.ps1
-            """
+           powershell label:'', script: """
+               pytest ./tests/test_sample.py
+           """
          }
-      }
-      // stage('Run Tests') {
-      //   steps {
-      //      powershell label:'', script: """
-      //         pytest ./tests/test_sample.py
-      //     """
-      //   }
-      // }
+       }
       
       // stage('Stop test app') {
       //    steps {
